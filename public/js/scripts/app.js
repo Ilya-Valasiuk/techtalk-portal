@@ -24,7 +24,15 @@
         .when('/details/:techtalkId', {
           controller: 'DetailsCtrl',
           templateUrl: 'views/details-page'
-        });
+        })
+        .when('/post/:slug', {
+          controller: 'PostCtrl',
+          templateUrl: 'views/post'
+        })
+       .when('/post/:slug/edit', {
+         controller: 'PostEditCtrl',
+         templateUrl: 'views/post-edit'
+       });
     }])
     /**
      * 

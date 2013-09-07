@@ -17,6 +17,18 @@
         method: 'GET',
         url: '/details/' + id
       });
+    },
+    getNewsPage: function(page) {
+      return $http({
+        method: 'GET',
+        url: '/news/' + parseInt(page)
+      })
+    },
+    getPost: function(slug){
+      return $http({
+        method: 'GET',
+        url: '/new/' + encodeURI(slug)
+      })
     }
   };
 }];

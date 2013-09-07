@@ -64,6 +64,68 @@ app.get('/test', function(req, res) {
   });
 });
 
+app.get('/news/:page', function(req, res) {
+  res.send([
+    {
+      id: '1',
+      slug: 'sample-news-1',
+      title: 'Sample news item 1',
+      content: '<p><b>rich</b> <i>text</i> news item contents</p>',
+      author: {
+        id: 'i_rule_uii@epam.com',
+        firstName: 'Maxim',
+        lastName: 'Mallets'
+      }
+    },
+    {
+      id: '2',
+      slug: 'sample-news-2',
+      title: 'Sample news item 2',
+      content: '<p><b>rich</b> <i>text</i> news item contents</p>',
+      author: {
+        id: 'i_rule_uii@epam.com',
+        firstName: 'Maxim',
+        lastName: 'Mallets'
+      }
+    }
+  ]);
+});
+
+app.get('/new/:slug', function(req, res) {
+  var slug = req.params.slug;
+
+  if(slug == 'sample-news-1'){
+    res.send({
+      id: '1',
+      date: '2013-09-04 21:45:40',
+      slug: 'sample-news-1',
+      title: 'Sample news item 1',
+      content: '<p><b>rich</b> <i>text</i> news item contents</p><p><b>rich</b> <i>text</i> news item contents</p>' +
+        '<p><b>rich</b> <i>text</i> news item contents</p><p><b>rich</b> <i>text</i> news item contents</p>',
+      author: {
+        id: 'i_rule_uii@epam.com',
+        firstName: 'Maxim',
+        lastName: 'Mallets'
+      }
+    });
+  }
+  if(slug == 'sample-news-2'){
+    res.send({
+      id: '2',
+      date: '2013-09-05 11:40:20',
+      slug: 'sample-news-2',
+      title: 'Sample news item 2',
+      content: '<p><b>rich</b> <i>text</i> news item contents</p><p><b>rich</b> <i>text</i> news item contents</p>' +
+        '<p><b>rich</b> <i>text</i> news item contents</p><p><b>rich</b> <i>text</i> news item contents</p>',
+      author: {
+      id: 'i_rule_uii@epam.com',
+        firstName: 'Maxim',
+        lastName: 'Mallets'
+      }
+    });
+  }
+});
+
 app.get('/details/:techtalkId', function(req, res) {
   var data = {
     '1': {
